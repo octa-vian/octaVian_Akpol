@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_background"
+    android:orientation="vertical"
+    android:weightSum="20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtDinoTanggalIstirahat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="07 September 2018"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtJamIstirahat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08"
+                android:textColor="#ffffff"
+                android:textSize="100sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textColor="#ffffff"
+                android:textSize="100sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtMenitIstirahat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08"
+                android:textColor="#ffffff"
+                android:textSize="100sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+        <RelativeLayout
+            android:id="@+id/tombolCheckInIstirahat"
+            android:layout_width="@dimen/setLayoutButtonCheckInOut"
+            android:layout_height="@dimen/setLayoutButtonCheckInOut"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bcg_btn_istirahat"
+            android:clickable="true">
+
+            <!--<TextView
+                android:id="@+id/checkin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="CHECK IN"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/textSizeButtonCheckInOut"
+                android:textStyle="bold" />-->
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

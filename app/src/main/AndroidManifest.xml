@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gmedia.net.id.OnTime">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.front" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon_notif_firebase" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorNotif" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+            <service android:name=".firebase.MyFirebaseMessagingService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                </intent-filter>
+            </service>
+            <service
+                android:name=".firebase.MyFirebaseInstanceIdService"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                </intent-filter>
+            </service>
+            <service
+                android:name=".firebase.MyJobService"
+                android:exported="false">
+                <intent-filter>
+                    <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+                </intent-filter>
+            </service>
+        <!--
+        <receiver android:enabled="true" android:name=".utils.BootUpReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Open_front_camera"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivityBaru"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarNew">
+            <intent-filter>
+                <action android:name="ACT_MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".menu_pengajuan.MenuPengajuan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_data.MenuData"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_history_cuti.HistoryCuti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_gaji.MenuInfoGaji"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_pengumuman.MenuPengumuman"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_gaji.MenuDetailInfoGaji"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_history_ijin.HistoryIjin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.AbsenMasuk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.AbsenPulang"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.Istirahat"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.MulaiLembur"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.KembaliBekerja"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_utama.BerhentiLembur"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_approval_cuti.ApprovalCuti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_approval_ijin.ApprovalIjin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".menu_keterlambatan.Keterlambatan"
+            android:screenOrientation="portrait" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="maps" />
+        <activity android:name=".menu_scanlog.Scanlog" />
+    </application>
+
+</manifest>

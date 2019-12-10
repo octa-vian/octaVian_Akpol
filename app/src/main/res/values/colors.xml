@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1581E8</color>
+    <color name="colorPrimaryDark">#1477D6</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="warnatombolin">#04b1f4</color>
+    <color name="warnatombolinkliked">#5004b1f4</color>
+    <color name="statusbarkeluar">#E8B201</color>
+    <color name="transparant">#00000000</color>
+    <color name="colorNotif">#009CD9</color>
+</resources>

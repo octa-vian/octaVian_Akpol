@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "780481262989",
+    "firebase_url": "https://on-time-c965e.firebaseio.com",
+    "project_id": "on-time-c965e",
+    "storage_bucket": "on-time-c965e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780481262989:android:990b0f69d81996b3",
+        "android_client_info": {
+          "package_name": "gmedia.net.id.OnTime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780481262989-pmn2rrnv3rrpq6ba6lro5s6ufhkvpa68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAraQ-IQV8ROx6MUoutUwCRh-ghyUvaZHY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

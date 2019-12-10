@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityBaru">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_home"
+        android:orientation="vertical"
+        android:weightSum="16.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <RelativeLayout
+                android:id="@+id/menu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="0.5">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/menu" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/textSizeDashboard" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/textSizeDashboard" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuAbsenMasukBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/absen_datang" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Absen Masuk"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuIstirahatBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/istirahat" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Istirahat"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuMulaiLemburBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/mulailembur" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Mulai Lembur"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/tombolSampaiTujuan"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/absenlapangan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sampai Tujuan"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuAbsenKeluarBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/absenpulang" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Absen Pulang"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuKembaliKerjaBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/mulai_kerja" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kembali Bekerja"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/menuBerhentiLemburBaru"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/selesailembur" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Berhenti Lembur"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.55"
+                        card_view:cardBackgroundColor="#ffffff"
+                        card_view:cardCornerRadius="15dp"
+                        card_view:cardElevation="4dp"
+                        card_view:cardPreventCornerOverlap="false"
+                        card_view:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:id="@+id/tombolPindahTujuan"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:layout_height="@dimen/imageSizeMenuUtamaDashboard"
+                                    android:src="@drawable/pindah_tempat" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pindah Tujuan"
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/textSizeMenuUtamaDashboard" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/changeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

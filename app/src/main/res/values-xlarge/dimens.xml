@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imageSizeCloseMenu">25dp</dimen>
+    <dimen name="textSizeMenu">30sp</dimen>
+    <dimen name="textSizeMenuLogout">35sp</dimen>
+    <dimen name="setLayoutButtonCheckInOut">180dp</dimen>
+    <dimen name="textSizeDashboard">16sp</dimen>
+    <dimen name="imageSizeMenuUtamaDashboard">60dp</dimen>
+    <dimen name="textSizeMenuUtamaDashboard">12sp</dimen>
+    <dimen name="judulAbsenku">70sp</dimen>
+    <dimen name="sizeFormLogin">450dp</dimen>
+    <dimen name="textForm">18sp</dimen>
+    <dimen name="widthBtnLogin">280dp</dimen>
+    <dimen name="heightBtnLogin">55dp</dimen>
+    <dimen name="textBtnLogin">25sp</dimen>
+</resources>
