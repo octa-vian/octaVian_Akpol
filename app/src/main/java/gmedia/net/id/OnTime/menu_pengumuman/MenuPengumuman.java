@@ -1,7 +1,7 @@
 package gmedia.net.id.OnTime.menu_pengumuman;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +17,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import gmedia.net.id.OnTime.R;
-import gmedia.net.id.OnTime.menu_scanlog.Scanlog;
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.DialogDataTidakDitemukan;
 import gmedia.net.id.OnTime.utils.DialogGagal;

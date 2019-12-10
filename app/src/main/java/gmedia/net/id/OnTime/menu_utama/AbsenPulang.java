@@ -3,17 +3,15 @@ package gmedia.net.id.OnTime.menu_utama;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
-import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.R;
 import gmedia.net.id.OnTime.ScanAbsen;
 import gmedia.net.id.OnTime.utils.GetLocation;

@@ -10,7 +10,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             card_view:cardBackgroundColor="#ffffff"
@@ -148,7 +148,7 @@
                         android:src="@drawable/icon_proses_approval_cuti" />
                 </RelativeLayout>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 </RelativeLayout>

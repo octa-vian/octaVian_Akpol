@@ -1,21 +1,13 @@
 package gmedia.net.id.OnTime;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.hardware.Camera;
-import android.media.ExifInterface;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -26,25 +18,14 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.jsoup.Jsoup;
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.CustomMapView;
-import gmedia.net.id.OnTime.utils.EncodeBitmapToString;
 import gmedia.net.id.OnTime.utils.GetImei;
-import gmedia.net.id.OnTime.utils.GetLocation;
 import gmedia.net.id.OnTime.utils.GetLocationAndShowMap;
-import gmedia.net.id.OnTime.utils.LinkURL;
 import gmedia.net.id.OnTime.utils.Proses;
 
 public class Open_front_camera extends AppCompatActivity {

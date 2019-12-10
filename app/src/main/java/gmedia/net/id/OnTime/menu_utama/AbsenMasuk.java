@@ -5,15 +5,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
-import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.R;
 import gmedia.net.id.OnTime.ScanAbsen;
 import gmedia.net.id.OnTime.utils.GetLocation;

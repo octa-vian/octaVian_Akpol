@@ -7,16 +7,16 @@
     android:background="#1581E8"
     tools:context=".menu_pengajuan.MenuPengajuan">
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerData"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="43dp"
         android:background="@drawable/bcg_layout">
 
-    </android.support.v4.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,5 +25,5 @@
         app:tabSelectedTextColor="#FFFFFF"
         app:tabTextColor="#afafaf">
 
-    </android.support.design.widget.TabLayout>
+    </com.google.android.material.tabs.TabLayout>
 </RelativeLayout>

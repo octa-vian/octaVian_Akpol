@@ -2,7 +2,7 @@ package gmedia.net.id.OnTime.menu_data.menu_jadwal_kerja;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Locale;
 
 import gmedia.net.id.OnTime.R;
-import gmedia.net.id.OnTime.menu_scanlog.Scanlog;
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.DialogDataTidakDitemukan;
 import gmedia.net.id.OnTime.utils.DialogGagal;

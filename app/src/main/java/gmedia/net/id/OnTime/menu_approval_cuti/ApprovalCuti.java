@@ -1,8 +1,8 @@
 package gmedia.net.id.OnTime.menu_approval_cuti;
 
 import android.content.Context;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gmedia.net.id.OnTime.R;
-import gmedia.net.id.OnTime.menu_scanlog.Scanlog;
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.DialogDataTidakDitemukan;
 import gmedia.net.id.OnTime.utils.DialogGagal;
