@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_background"
+    android:background="@drawable/bghome"
     android:orientation="vertical"
     android:weightSum="20">
 
@@ -76,7 +76,64 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
     <RelativeLayout
+        android:id="@+id/cekin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bcg_btn_login"
+        android:layout_marginBottom="12dp"
+        android:elevation="40dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#fff"
+            android:text="KUNJUNGAN"/>
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cekout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:elevation="40dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bcg_btn_cekout"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="SELESAI"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
@@ -89,7 +146,7 @@
             android:background="@drawable/bcg_btn_absen_masuk"
             android:clickable="true">
 
-            <!--<TextView
+            &lt;!&ndash;<TextView
                 android:id="@+id/checkin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +154,26 @@
                 android:text="CHECK IN"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/textSizeButtonCheckInOut"
-                android:textStyle="bold" />-->
-        </RelativeLayout>
-    </RelativeLayout>
+                android:textStyle="bold" />&ndash;&gt;
+        </RelativeLayout>-->
+       <!-- <RelativeLayout
+            android:id="@+id/tombolCheck"
+            android:layout_width="@dimen/setLayoutButtonCheckInOut"
+            android:layout_height="@dimen/setLayoutButtonCheckInOut"
+            android:layout_centerInParent="true"
+            android:layout_alignBottom="@id/tombolCheckIn"
+            android:background="@drawable/bcg_btn_absen_masuk"
+            android:clickable="true">
+
+            &lt;!&ndash;<TextView
+                android:id="@+id/checkin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="CHECK IN"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/textSizeButtonCheckInOut"
+                android:textStyle="bold" />&ndash;&gt;
+        </RelativeLayout>-->
+    <!--</RelativeLayout>-->
 </LinearLayout>

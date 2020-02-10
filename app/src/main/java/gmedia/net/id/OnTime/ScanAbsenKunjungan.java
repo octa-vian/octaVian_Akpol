@@ -25,19 +25,20 @@ import java.util.Arrays;
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.DialogGagal;
 import gmedia.net.id.OnTime.utils.GetImei;
+import gmedia.net.id.OnTime.utils.GetLocation;
 import gmedia.net.id.OnTime.utils.LinkURL;
 import gmedia.net.id.OnTime.utils.Proses;
 
 import static android.content.Context.WIFI_SERVICE;
 
-public class ScanAbsen {
+public class ScanAbsenKunjungan {
 	private Context context;
 	private Proses proses;
 	private String infoSSID = "", infoBSSID = "", infoIpPublic = "", tipe_scan, imei;
 	private WifiManager manager;
 	private DialogGagal dialogGagal;
 
-	public ScanAbsen(final Context context, String tipe_scan) {
+	public ScanAbsenKunjungan(final Context context, String tipe_scan) {
 		this.context = context;
 		this.tipe_scan = tipe_scan;
 		proses = new Proses(context);
@@ -63,12 +64,13 @@ public class ScanAbsen {
 	}
 
 	private void Absen() {
+
 		JSONArray jsonArray = new JSONArray(GetImei.getIMEI(context));
 		final JSONObject jBody = new JSONObject();
 		try {
 			jBody.put("foto", "");
-//			jBody.put("latitude", DashboardBaru.latitude);
-//			jBody.put("longitude", DashboardBaru.longitude);
+			jBody.put("latitude", DashboardBaru.latitude);
+			jBody.put("longitude", DashboardBaru.longitude);
 			jBody.put("tipe_scan", tipe_scan);
 			jBody.put("imei", jsonArray);
 			jBody.put("ip_public", infoIpPublic);

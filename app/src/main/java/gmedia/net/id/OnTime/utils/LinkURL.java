@@ -1,9 +1,9 @@
 package gmedia.net.id.OnTime.utils;
 
 public class LinkURL {
-//    public static String BaseURLLocalHost = "http://192.168.20.4/hrd.absensi/";
-    public static String BaseURLLocalHost = "http://gmedia.bz/ontime/";
-    public static String UrlLogin = BaseURLLocalHost + "Rest/auth";
+  //public static String BaseURLLocalHost = "http://192.168.20.51/absensi_akpol/";
+   public static String BaseURLLocalHost = "http://gmedia.bz/absensi_akpol/";
+    public static String UrlLogin = BaseURLLocalHost + "Rest/auth/";
     public static String ScanAbsen = BaseURLLocalHost + "Rest_Scan/scan";
     public static String Profile = BaseURLLocalHost + "Rest_Profile/";
     public static String ListJadwalKerja = BaseURLLocalHost + "Rest_Jadwal/index";

@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
 		session.checkIDPerusahaan();
 		if (!isIDPerusahaan) {
 			if (!onPopupIDPerusahaan) {
-				popupInputIDPerusahaan();
+				//popupInputIDPerusahaan();
 			}
 		}
 	}
@@ -93,7 +93,6 @@ public class Login extends AppCompatActivity {
 					try {
 						jBody.put("username", username.getText().toString());
 						jBody.put("password", password.getText().toString());
-						jBody.put("kode", session.getKeyIdPerusahaan());
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
@@ -109,12 +108,22 @@ public class Login extends AppCompatActivity {
 									String user_id = object.getJSONObject("response").getString("username");
 									String token = object.getJSONObject("response").getString("token");
 									String id_karyawan = object.getJSONObject("response").getString("id_karyawan");
-									String id_company = object.getJSONObject("response").getString("id_company");
+									String profile_name = object.getJSONObject("response").getString("profile_name");
 									String id_user = object.getJSONObject("response").getString("id_user");
 									String approvalCuti = object.getJSONObject("response").getString("cuti");
 									String approvalIjin = object.getJSONObject("response").getString("ijin");
-									session.createLoginSession(user_id, token, id_karyawan, id_company, id_user, approvalCuti, approvalIjin);
+									session.createLoginSession(user_id, token, id_karyawan, profile_name, id_user, approvalCuti, approvalIjin);
 									Intent intent = new Intent(Login.this, MainActivityBaru.class);
+
+									/*"response": {
+										"id_user": "2",
+												"username": "iniesta",
+												"id_karyawan": "71",
+												"profile_name": "",
+												"token": "$1$mTdzu6x3$VWDDUIZcNU4NrvmJAY8qk1",
+												"cuti": "0",
+												"ijin": "0"
+									},*/
 									startActivity(intent);
 									finish();
 								} else if (status.equals("401")) {
@@ -189,7 +198,7 @@ public class Login extends AppCompatActivity {
 				dialog.dismiss();
 				if (!isIDPerusahaan) {
 					if (!onPopupIDPerusahaan) {
-						popupInputIDPerusahaan();
+						//popupInputIDPerusahaan();
 					}
 				}
 			}
@@ -213,7 +222,7 @@ public class Login extends AppCompatActivity {
 				handler.removeCallbacks(runnable);
 				if (!isIDPerusahaan) {
 					if (!onPopupIDPerusahaan) {
-						popupInputIDPerusahaan();
+						//popupInputIDPerusahaan();
 					}
 				}
 			}
@@ -234,7 +243,7 @@ public class Login extends AppCompatActivity {
 				dialog.dismiss();
 				if (!isIDPerusahaan) {
 					if (!onPopupIDPerusahaan) {
-						popupInputIDPerusahaan();
+						//popupInputIDPerusahaan();
 					}
 				}
 			}
@@ -257,7 +266,7 @@ public class Login extends AppCompatActivity {
 				handler.removeCallbacks(runnable);
 				if (!isIDPerusahaan) {
 					if (!onPopupIDPerusahaan) {
-						popupInputIDPerusahaan();
+						//popupInputIDPerusahaan();
 					}
 				}
 			}
@@ -265,7 +274,7 @@ public class Login extends AppCompatActivity {
 		handler.postDelayed(runnable, 3000);
 	}
 
-	private void popupInputIDPerusahaan() {
+	/*private void popupInputIDPerusahaan() {
 		onPopupIDPerusahaan = true;
 //		id_perusahaan = session.getKeyIdPerusahaan();
 		final Dialog dialog = new Dialog(Login.this);
@@ -299,7 +308,7 @@ public class Login extends AppCompatActivity {
 		dialog.setCanceledOnTouchOutside(false);
 		dialog.show();
 		dialog.setCancelable(false);
-		/*dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+		*//*dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
 			@Override
 			public boolean onKey(DialogInterface dialogInterface, int keyCode, KeyEvent keyEvent) {
 				if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -308,7 +317,7 @@ public class Login extends AppCompatActivity {
 				}
 				return true;
 			}
-		});*/
+		});*//*
 
-	}
+	}*/
 }

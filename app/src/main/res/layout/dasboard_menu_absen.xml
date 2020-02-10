@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/home_bg"
+        android:background="@drawable/bghome"
         android:orientation="vertical"
         android:weightSum="16.6">
 
@@ -65,9 +65,16 @@
                 android:layout_weight="0.25" />
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:orientation="vertical"
             android:layout_weight="4">
 
             <LinearLayout
@@ -78,8 +85,8 @@
                 android:weightSum="5">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1.5"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
@@ -95,16 +102,25 @@
                     <ImageView
                         android:id="@+id/fotoProfile"
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:src="@drawable/icon_absensi_baru" />
                 </LinearLayout>
             </LinearLayout>
 
+
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >-->
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="bottom"
+                android:layout_margin="12dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -114,7 +130,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="NAMAMU"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/textSizeDashboard" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/nikProfile"
@@ -126,21 +142,136 @@
                     android:textColor="#ffffff"
                     android:textSize="@dimen/textSizeDashboard" />
             </LinearLayout>
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+       <!-- </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="11"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
             android:weightSum="2">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="0.55"
+                    card_view:cardBackgroundColor="#ffffff"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="4dp"
+                    card_view:cardPreventCornerOverlap="false"
+                    card_view:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rv_apel"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_margin="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="2.7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/apelicon"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="18dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Apel"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_black"
+                                android:textSize="30sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="12dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="2.9"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.55"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    card_view:cardBackgroundColor="#ffffff"
+                    card_view:cardCornerRadius="20dp"
+                    card_view:cardElevation="4dp"
+                    card_view:cardPreventCornerOverlap="false"
+                    card_view:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rv_kunjungan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_margin="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="2.7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/kunjungan"/>
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Kunjungan"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_black"
+                                android:textSize="30sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="12dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="2.9"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+            <!--<LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -583,10 +714,9 @@
                             </LinearLayout>
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                </LinearLayout>-->
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/changeLayout"

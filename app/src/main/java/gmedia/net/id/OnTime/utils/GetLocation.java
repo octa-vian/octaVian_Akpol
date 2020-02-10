@@ -47,6 +47,7 @@ import java.util.Locale;
 
 import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.Open_front_camera;
+import gmedia.net.id.OnTime.menu_utama.Lokasi;
 
 public class GetLocation {
     private double latitude, longitude;
@@ -78,6 +79,7 @@ public class GetLocation {
     private GoogleMap googleMap;
     private Context context;
     private CustomMapView mvMap;
+    private Lokasi loc;
 
     public void GetLocation(Context context) {
         this.context = context;
@@ -127,6 +129,7 @@ public class GetLocation {
             Open_front_camera.longitude = "" + this.longitude;
             DashboardBaru.latitude = "" + this.latitude;
             DashboardBaru.longitude = "" + this.longitude;
+            loc = new Lokasi (latitude,longitude);
 //            setPointMap();
         }
     }
@@ -421,15 +424,15 @@ public class GetLocation {
         longitude = position.longitude;
 
         //get address
-        /*new Thread(new Runnable() {
+      /*  new Thread(new Runnable() {
             public void run() {
                 address0 = getAddress(location);
             }
         }).start();*/
 //        edtLatitude.setText(doubleToStringFull(latitude));
 //        edtLongitude.setText(doubleToStringFull(longitude));
-
-
+//
+//
 //        edtState.setText(address0);
     }
 

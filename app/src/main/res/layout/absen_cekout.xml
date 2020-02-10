@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_background"
+    android:background="@drawable/orange_background"
     android:orientation="vertical"
     android:weightSum="20">
 
@@ -86,7 +86,7 @@
             android:layout_width="@dimen/setLayoutButtonCheckInOut"
             android:layout_height="@dimen/setLayoutButtonCheckInOut"
             android:layout_centerInParent="true"
-            android:background="@drawable/bcg_btn_absen_masuk"
+            android:background="@drawable/bcg_btn_absen_cek_out"
             android:clickable="true">
 
             <!--<TextView

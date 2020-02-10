@@ -8,33 +8,36 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
+import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.R;
 import gmedia.net.id.OnTime.ScanAbsen;
+import gmedia.net.id.OnTime.ScanAbsenKunjungan;
 import gmedia.net.id.OnTime.utils.GetLocation;
 import gmedia.net.id.OnTime.utils.Proses;
 
-public class AbsenCekIn extends Activity {
+public class AbsenCekOut extends Activity {
 	private View view;
 	private Context context;
 	private TextView tanggal, jam, menit;
-	private RelativeLayout btnCheckIn;
+	private RelativeLayout btnCheckOut;
 	private GetLocation getLocation;
-	private String tipe_scan = "7";
+	private String tipe_scan = "8";
 	private Proses proses;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.absen_masuk);
-		proses = new Proses(AbsenCekIn.this);
-		/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+		setContentView(R.layout.absen_cekout);
+		proses = new Proses(AbsenCekOut.this);
+		if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 			getLocation = new GetLocation();
-			getLocation.GetLocation(AbsenMasuk.this);
-		}*/
+			getLocation.GetLocation(AbsenCekOut.this);
+		}
 		initUI();
 		initAction();
 	}
@@ -57,7 +60,7 @@ public class AbsenCekIn extends Activity {
 		tanggal = (TextView) findViewById(R.id.txtDinoTanggalMasuk);
 		jam = (TextView) findViewById(R.id.txtJamMasuk);
 		menit = (TextView) findViewById(R.id.txtMenitMasuk);
-		btnCheckIn = (RelativeLayout) findViewById(R.id.tombolCheckIn);
+		btnCheckOut = (RelativeLayout) findViewById(R.id.tombolCheckIn);
 	}
 
 	@SuppressLint("ClickableViewAccessibility")
@@ -76,20 +79,20 @@ public class AbsenCekIn extends Activity {
 			}
 		};
 		handler.postDelayed(r, 300);
-		btnCheckIn.setOnClickListener(new View.OnClickListener() {
+		btnCheckOut.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				ScanAbsen scanAbsen = new ScanAbsen(AbsenCekIn.this, tipe_scan);
-				/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+				ScanAbsenKunjungan scanAbsen = new ScanAbsenKunjungan(AbsenCekOut.this, tipe_scan);
+				if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 					getLocation = new GetLocation();
-					getLocation.GetLocation(AbsenMasuk.this);
+					getLocation.GetLocation(AbsenCekOut.this);
 					Toast.makeText(context, "please try again", Toast.LENGTH_LONG).show();
 				} else {
 //                    prepareAbsenMasuk();
-					ScanAbsen scanAbsen = new ScanAbsen(AbsenMasuk.this, tipe_scan);
+					ScanAbsenKunjungan scanAbsenKunjungan = new ScanAbsenKunjungan(AbsenCekOut.this, tipe_scan);
 //                    Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
 //                    Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
-				}*/
+				}
 			}
 		});
 	}

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bghome"
     tools:context=".menu_pengajuan.Fragment_cuti">
 
     <ScrollView
@@ -14,20 +15,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="SCAN LOG"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="#fff" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Input tanggal"
-                    android:textColor="#000000" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -35,6 +38,12 @@
                     android:layout_alignParentBottom="true"
                     android:orientation="horizontal"
                     android:weightSum="5">
+                    <ImageView
+                        android:id="@+id/btnTanggalScanlog"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/calendar1" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -47,8 +56,10 @@
                             android:id="@+id/txtTanggalScanlog"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
+                            android:textStyle="bold"
+                            android:text="06 okt 2019"
+                            android:textColor="#fff"
+                            android:textSize="20sp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -59,26 +70,22 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/btnTanggalScanlog"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:src="@drawable/calendar" />
+
                 </LinearLayout>
             </RelativeLayout>
 
             <Button
                 android:id="@+id/btnProsesScanlog"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/bcg_btnkirim_cuti"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bcg_btn_proses"
                 android:text="Proses"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textColor="@color/color_black"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/tableScanlog"

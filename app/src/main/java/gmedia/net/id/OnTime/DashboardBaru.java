@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
 import android.os.Build;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -45,6 +49,7 @@ import gmedia.net.id.OnTime.menu_utama.AbsenPulang;
 import gmedia.net.id.OnTime.menu_utama.BerhentiLembur;
 import gmedia.net.id.OnTime.menu_utama.Istirahat;
 import gmedia.net.id.OnTime.menu_utama.KembaliBekerja;
+import gmedia.net.id.OnTime.menu_utama.Kunjungan;
 import gmedia.net.id.OnTime.menu_utama.MulaiLembur;
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.CircleTransform;
@@ -57,7 +62,10 @@ import gmedia.net.id.OnTime.utils.SessionManager;
 
 public class DashboardBaru extends Fragment {
 	private View view;
-	private RelativeLayout btnMenu, btnGantiPassword, menuAbsenMasuk, menuIstirahat, menuMulaiLembur, menuSampaiTujuan, menuAbsenPulang, menuKembaliKerja, menuBerhentiLembur, menuPindahTujuan;
+	private RelativeLayout btnMenu, btnGantiPassword;
+			/*menuAbsenMasuk, menuIstirahat, menuMulaiLembur, menuSampaiTujuan, menuAbsenPulang,
+			menuKembaliKerja, menuBerhentiLembur, menuPindahTujuan;*/
+	private RelativeLayout btn_apel, btn_kunjungan;
 	private Fragment fragment;
 	private Context context;
 	private GetLocation getLocation;
@@ -76,14 +84,15 @@ public class DashboardBaru extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.dashboard_baru, viewGroup, false);
+		view = inflater.inflate(R.layout.dasboard_menu_absen, viewGroup, false);
+
 		context = getContext();
 		proses = new Proses(context);
 		session = new SessionManager(context);
 		dialogSukses = new DialogSukses(context);
 
 		FirebaseApp.initializeApp(context);
-		FirebaseMessaging.getInstance().subscribeToTopic("ontime");
+		FirebaseMessaging.getInstance().subscribeToTopic("Akpol");
 		token = FirebaseInstanceId.getInstance().getToken();
 		try {
 			Log.d("token", token);
@@ -98,29 +107,46 @@ public class DashboardBaru extends Fragment {
 			window.setStatusBarColor(this.getResources().getColor(R.color.colorPrimaryDark));
 		}
 
-		/*if (latitude.equals("") || longitude.equals("")) {
+		if (latitude.equals("") || longitude.equals("")) {
 			getLocation = new GetLocation();
 			getLocation.GetLocation(context);
-		}*/
+		}
 		initUI();
 		initAction();
 		return view;
+
+		/*FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
+		mFusedLocation.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+			@Override
+			public void onSuccess(Location location) {
+				if (location != null){
+					// Do it all with location
+					Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+					// Display in Toast
+					Toast.makeText(DashboardBaru.this,
+							"Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),
+							Toast.LENGTH_LONG).show();
+				}
+			}
+		});*/
 	}
 
 	private void initUI() {
+		btn_apel = (RelativeLayout) view.findViewById(R.id.rv_apel);
+		btn_kunjungan = (RelativeLayout) view.findViewById(R.id.rv_kunjungan);
 		fotoProfle = (ImageView) view.findViewById(R.id.fotoProfile);
 		namaProfile = (TextView) view.findViewById(R.id.namaProfile);
 		nikProfile = (TextView) view.findViewById(R.id.nikProfile);
 		btnMenu = (RelativeLayout) view.findViewById(R.id.menuDashboardBaru);
 		btnGantiPassword = (RelativeLayout) view.findViewById(R.id.menuGantiPassword);
-		menuAbsenMasuk = (RelativeLayout) view.findViewById(R.id.menuAbsenMasukBaru);
-		menuIstirahat = (RelativeLayout) view.findViewById(R.id.menuIstirahatBaru);
+		//menuAbsenMasuk = (RelativeLayout) view.findViewById(R.id.menuAbsenMasukBaru);
+		/*menuIstirahat = (RelativeLayout) view.findViewById(R.id.menuIstirahatBaru);
 		menuMulaiLembur = (RelativeLayout) view.findViewById(R.id.menuMulaiLemburBaru);
 		menuSampaiTujuan = (RelativeLayout) view.findViewById(R.id.tombolSampaiTujuan);
 		menuAbsenPulang = (RelativeLayout) view.findViewById(R.id.menuAbsenKeluarBaru);
 		menuKembaliKerja = (RelativeLayout) view.findViewById(R.id.menuKembaliKerjaBaru);
 		menuBerhentiLembur = (RelativeLayout) view.findViewById(R.id.menuBerhentiLemburBaru);
-		menuPindahTujuan = (RelativeLayout) view.findViewById(R.id.tombolPindahTujuan);
+		menuPindahTujuan = (RelativeLayout) view.findViewById(R.id.tombolPindahTujuan);*/
 	}
 
 	private void initAction() {
@@ -139,7 +165,7 @@ public class DashboardBaru extends Fragment {
 						dialogMenu.dismiss();
 					}
 				});
-				LinearLayout menuData = (LinearLayout) dialogMenu.findViewById(R.id.menuData);
+				/*LinearLayout menuData = (LinearLayout) dialogMenu.findViewById(R.id.menuData);
 				menuData.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
@@ -147,8 +173,8 @@ public class DashboardBaru extends Fragment {
 						((Activity) context).startActivity(intent);
 						dialogMenu.dismiss();
 					}
-				});
-				LinearLayout menuPengumuman = (LinearLayout) dialogMenu.findViewById(R.id.menuPengumuman);
+				});*/
+				/*LinearLayout menuPengumuman = (LinearLayout) dialogMenu.findViewById(R.id.menuPengumuman);
 				menuPengumuman.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
@@ -156,7 +182,7 @@ public class DashboardBaru extends Fragment {
 						((Activity) context).startActivity(intent);
 						dialogMenu.dismiss();
 					}
-				});
+				});*/
 				LinearLayout menuApprovalCuti = (LinearLayout) dialogMenu.findViewById(R.id.menuApprovalCuti);
 				if (session.getKeyApprovalCuti().equals("1")) {
 					menuApprovalCuti.setVisibility(View.VISIBLE);
@@ -181,7 +207,7 @@ public class DashboardBaru extends Fragment {
 						}
 					});
 				}
-				LinearLayout menuPengajuan = (LinearLayout) dialogMenu.findViewById(R.id.menuPengajuan);
+				/*LinearLayout menuPengajuan = (LinearLayout) dialogMenu.findViewById(R.id.menuPengajuan);
 				menuPengajuan.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
@@ -189,9 +215,9 @@ public class DashboardBaru extends Fragment {
 						((Activity) context).startActivity(intent);
 						dialogMenu.dismiss();
 					}
-				});
+				});*/
 
-				LinearLayout menuInfoGaji = (LinearLayout) dialogMenu.findViewById(R.id.menuInfoGaji);
+				/*LinearLayout menuInfoGaji = (LinearLayout) dialogMenu.findViewById(R.id.menuInfoGaji);
 				menuInfoGaji.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
@@ -199,7 +225,7 @@ public class DashboardBaru extends Fragment {
 						((Activity) context).startActivity(intent);
 						dialogMenu.dismiss();
 					}
-				});
+				});*/
 				LinearLayout menuScanlog = (LinearLayout) dialogMenu.findViewById(R.id.menuScanlog);
 				menuScanlog.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -209,7 +235,7 @@ public class DashboardBaru extends Fragment {
 						dialogMenu.dismiss();
 					}
 				});
-				LinearLayout menuKeterlambatan = (LinearLayout) dialogMenu.findViewById(R.id.menuKeterlambatan);
+				/*LinearLayout menuKeterlambatan = (LinearLayout) dialogMenu.findViewById(R.id.menuKeterlambatan);
 				menuKeterlambatan.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
@@ -217,7 +243,7 @@ public class DashboardBaru extends Fragment {
 						((Activity) context).startActivity(intent);
 						dialogMenu.dismiss();
 					}
-				});
+				});*/
 				TextView logout = (TextView) dialogMenu.findViewById(R.id.logout);
 				logout.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -346,7 +372,7 @@ public class DashboardBaru extends Fragment {
 				dialog.show();
 			}
 		});
-		menuAbsenMasuk.setOnClickListener(new View.OnClickListener() {
+		btn_apel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
                 /*MainActivityBaru.isHome = false;
@@ -358,12 +384,25 @@ public class DashboardBaru extends Fragment {
 			}
 		});
 
-		menuIstirahat.setOnClickListener(new View.OnClickListener() {
+		btn_kunjungan.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				/*MainActivityBaru.isHome = false;
+                /*MainActivityBaru.isHome = false;
+                fragment = new AbsenMasuk();
+                callFragment(fragment);*/
+				Intent intent = new Intent(context, Kunjungan.class);
+				((Activity) context).startActivity(intent);
+				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
+			}
+		});
+
+
+		/*menuIstirahat.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				*//*MainActivityBaru.isHome = false;
 				fragment = new Istirahat();
-				callFragment(fragment);*/
+				callFragment(fragment);*//*
 				Intent intent = new Intent(context, Istirahat.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
@@ -372,9 +411,9 @@ public class DashboardBaru extends Fragment {
 		menuMulaiLembur.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				/*MainActivityBaru.isHome = false;
+				*//*MainActivityBaru.isHome = false;
 				fragment = new MulaiLembur();
-				callFragment(fragment);*/
+				callFragment(fragment);*//*
 				Intent intent = new Intent(context, MulaiLembur.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
@@ -393,9 +432,9 @@ public class DashboardBaru extends Fragment {
 		menuAbsenPulang.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				/*MainActivityBaru.isHome = false;
+				*//*MainActivityBaru.isHome = false;
 				fragment = new AbsenPulang();
-				callFragment(fragment);*/
+				callFragment(fragment);*//*
 				Intent intent = new Intent(context, AbsenPulang.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
@@ -404,9 +443,9 @@ public class DashboardBaru extends Fragment {
 		menuKembaliKerja.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				/*MainActivityBaru.isHome = false;
+				*//*MainActivityBaru.isHome = false;
 				fragment = new KembaliBekerja();
-				callFragment(fragment);*/
+				callFragment(fragment);*//*
 				Intent intent = new Intent(context, KembaliBekerja.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
@@ -415,9 +454,9 @@ public class DashboardBaru extends Fragment {
 		menuBerhentiLembur.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				/*MainActivityBaru.isHome = false;
+				*//*MainActivityBaru.isHome = false;
 				fragment = new BerhentiLembur();
-				callFragment(fragment);*/
+				callFragment(fragment);*//*
 				Intent intent = new Intent(context, BerhentiLembur.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
@@ -432,7 +471,8 @@ public class DashboardBaru extends Fragment {
 				intent.putExtra("absen", "pindah tujuan");
 				((Activity) context).startActivity(intent);
 			}
-		});
+		});*/
+
 	}
 
 

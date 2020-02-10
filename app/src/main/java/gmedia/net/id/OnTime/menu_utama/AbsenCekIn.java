@@ -5,44 +5,57 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
+import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.R;
 import gmedia.net.id.OnTime.ScanAbsen;
+import gmedia.net.id.OnTime.ScanAbsenKunjungan;
 import gmedia.net.id.OnTime.utils.GetLocation;
 import gmedia.net.id.OnTime.utils.Proses;
 
-public class AbsenMasuk extends Activity {
+public class AbsenCekIn extends Activity {
 	private View view;
 	private Context context;
 	private TextView tanggal, jam, menit;
 	private RelativeLayout btnCheckIn;
 	private GetLocation getLocation;
-	private String tipe_scan = "9";
+	private String tipe_scan = "7";
 	private Proses proses;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.absen_masuk);
-		proses = new Proses(AbsenMasuk.this);
-		/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+		setContentView(R.layout.absen_cekin);
+
+		if (android.os.Build.VERSION.SDK_INT >= 21) {
+			Window window = this.getWindow();
+			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			window.setStatusBarColor(this.getResources().getColor(R.color.colorNotif));
+		}
+		proses = new Proses(AbsenCekIn.this);
+		if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 			getLocation = new GetLocation();
-			getLocation.GetLocation(AbsenMasuk.this);
-		}*/
+			getLocation.GetLocation(AbsenCekIn.this);
+		}
 		initUI();
 		initAction();
 	}
 
 	/*@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.absen_masuk, viewGroup, false);
+		view = inflater.inflate(R.layout.absen_cekin, viewGroup, false);
 		context = getApplicationContext();
 		proses = new Proses(context);
 		if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
@@ -52,8 +65,8 @@ public class AbsenMasuk extends Activity {
 		initUI();
 		initAction();
 		return view;
-	}*/
-
+	}
+*/
 	private void initUI() {
 		tanggal = (TextView) findViewById(R.id.txtDinoTanggalMasuk);
 		jam = (TextView) findViewById(R.id.txtJamMasuk);
@@ -80,17 +93,17 @@ public class AbsenMasuk extends Activity {
 		btnCheckIn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				ScanAbsen scanAbsen = new ScanAbsen(AbsenMasuk.this, tipe_scan);
-				/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+				ScanAbsenKunjungan scanAbsen = new ScanAbsenKunjungan(AbsenCekIn.this, tipe_scan);
+				if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 					getLocation = new GetLocation();
-					getLocation.GetLocation(AbsenMasuk.this);
+					getLocation.GetLocation(AbsenCekIn.this);
 					Toast.makeText(context, "please try again", Toast.LENGTH_LONG).show();
 				} else {
-//                    prepareAbsenMasuk();
-					ScanAbsen scanAbsen = new ScanAbsen(AbsenMasuk.this, tipe_scan);
-//                    Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
-//                    Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
-				}*/
+//                   prepareAbsenMasuk();
+					ScanAbsenKunjungan scanAbsenKunjungan = new ScanAbsenKunjungan(AbsenCekIn.this, tipe_scan);
+//                   Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
+ //                   Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
+				}
 			}
 		});
 	}

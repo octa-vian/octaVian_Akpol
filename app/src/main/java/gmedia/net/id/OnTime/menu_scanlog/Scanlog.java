@@ -51,7 +51,7 @@ public class Scanlog extends AppCompatActivity {
 		setContentView(R.layout.activity_scanlog);
 		proses = new Proses(this);
 		ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle("Scanlog");
+		actionBar.setTitle("");
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setElevation(0);
 		initUI();

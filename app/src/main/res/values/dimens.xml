@@ -14,10 +14,16 @@
     <dimen name="textSizeDashboard">14sp</dimen>
     <dimen name="imageSizeMenuUtamaDashboard">50dp</dimen>
     <dimen name="textSizeMenuUtamaDashboard">10sp</dimen>
+    <dimen name="main_layout_icon_height_half">50dp</dimen>
     <dimen name="judulAbsenku">50sp</dimen>
     <dimen name="sizeFormLogin">300dp</dimen>
     <dimen name="textForm">14sp</dimen>
     <dimen name="widthBtnLogin">200dp</dimen>
     <dimen name="heightBtnLogin">40dp</dimen>
     <dimen name="textBtnLogin">18sp</dimen>
+    <dimen name="main_layout_icon_height">100dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="big_icon_size">40dp</dimen>
+    <dimen name="medium_icon_size">30dp</dimen>
 </resources>

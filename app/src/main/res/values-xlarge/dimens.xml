@@ -2,6 +2,7 @@
 <resources>
     <dimen name="imageSizeCloseMenu">25dp</dimen>
     <dimen name="textSizeMenu">30sp</dimen>
+    <dimen name="dp10">10dp</dimen>
     <dimen name="textSizeMenuLogout">35sp</dimen>
     <dimen name="setLayoutButtonCheckInOut">180dp</dimen>
     <dimen name="textSizeDashboard">16sp</dimen>

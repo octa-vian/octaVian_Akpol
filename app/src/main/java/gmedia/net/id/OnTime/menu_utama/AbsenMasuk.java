@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,7 +25,7 @@ public class AbsenMasuk extends Activity {
 	private TextView tanggal, jam, menit;
 	private RelativeLayout btnCheckIn;
 	private GetLocation getLocation;
-	private String tipe_scan = "1";
+	private String tipe_scan = "9";
 	private Proses proses;
 
 
@@ -32,6 +34,13 @@ public class AbsenMasuk extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.absen_masuk);
 		proses = new Proses(AbsenMasuk.this);
+		
+		if (android.os.Build.VERSION.SDK_INT >= 21) {
+			Window window = this.getWindow();
+			window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+			window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			window.setStatusBarColor(this.getResources().getColor(R.color.colorNotif));
+		}
 		/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 			getLocation = new GetLocation();
 			getLocation.GetLocation(AbsenMasuk.this);
