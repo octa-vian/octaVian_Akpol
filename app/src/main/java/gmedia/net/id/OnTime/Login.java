@@ -1,13 +1,16 @@
 package gmedia.net.id.OnTime;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import gmedia.net.id.OnTime.utils.ApiVolley;
 import gmedia.net.id.OnTime.utils.LinkURL;
@@ -30,9 +34,10 @@ public class Login extends AppCompatActivity {
 	private Proses proses;
 	private RelativeLayout btnNjajal;
 	private String id_perusahaan, message;
-	private EditText isian;
+	private EditText isian, txtEmail;
+	private TextView tv_tbn_psw;
 	public static Boolean isIDPerusahaan;
-	private boolean onPopupIDPerusahaan = false;
+	private boolean onback = false;
 
 
 	@Override
@@ -42,21 +47,56 @@ public class Login extends AppCompatActivity {
 		proses = new Proses(Login.this);
 		session = new SessionManager(Login.this);
 		session.checkLogin();
+
 //		session.createLoginSession();
 		/*id_perusahaan = session.getKeyIdPerusahaan();
 		if (id_perusahaan.equals("")) {
 			popupInputIDPerusahaan();
 		}*/
+
+		tv_tbn_psw = (TextView) findViewById(R.id.tv_pswd);
+		tv_tbn_psw.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View ps) {
+				final Dialog dialog = new Dialog(Login.this);
+				dialog.setContentView(R.layout.popup_reset_pswd);
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+				txtEmail = (EditText) dialog.findViewById(R.id.txt_email);
+				RelativeLayout btnClose = (RelativeLayout) dialog.findViewById(R.id.btnClosePopupIDPerusahaan);
+				RelativeLayout btn_kirim = (RelativeLayout) dialog.findViewById(R.id.btnKirim);
+				btnClose.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View view) {
+						onback = false;
+						dialog.dismiss();
+					}
+				});
+
+				btn_kirim.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						kirimData();
+						dialog.dismiss();
+					}
+				});
+
+				dialog.show();
+				/*Intent ps2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://stackoverflow.com/questions/24261224/android-open-url-onclick-certain-button"));
+				startActivity(ps2);*/
+			}
+		});
 		initUI();
 		initAction();
 	}
+
+
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 		session.checkIDPerusahaan();
 		if (!isIDPerusahaan) {
-			if (!onPopupIDPerusahaan) {
+			if (!onback) {
 				//popupInputIDPerusahaan();
 			}
 		}
@@ -68,6 +108,61 @@ public class Login extends AppCompatActivity {
 		password = (EditText) findViewById(R.id.ETpassword);
 		btnNjajal = (RelativeLayout) findViewById(R.id.btnNjajal);
 	}
+
+	private void kirimData() {
+
+		JSONObject body = new JSONObject();
+		try {
+			body.put("email", txtEmail.getText().toString());
+		}
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		ApiVolley request = new ApiVolley(Login.this, body, "POST", LinkURL.RePassword, "", "", 0, new ApiVolley.VolleyCallback() {
+			@Override
+			public void onSuccess(String result) {
+				proses.DismissDialog();
+				Log.d("Response", result);
+				try {
+					JSONObject object = new JSONObject(result);
+					int status = object.getJSONObject("metadata").getInt("status");
+					String message;
+					if (status==200){
+						final Dialog dialog = new Dialog(Login.this);
+						dialog.setContentView(R.layout.popup_sukses2);
+						dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+						RelativeLayout btnOk = (RelativeLayout) dialog.findViewById(R.id.btnOkPopupSukses);
+						btnOk.setOnClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								dialog.dismiss();
+								Intent intent = new Intent(Login.this, Login.class);
+								((Activity) Login.this).startActivity(intent);
+								((Activity) Login.this).overridePendingTransition(R.anim.no_move, R.anim.fade_out_animation);
+								((Activity) Login.this).finish();
+							}
+						});
+						dialog.show();
+						message = object.getJSONObject("metadata").getString("message");
+					} else {
+						message = object.getJSONObject("metadata").getString("message");
+					}
+					Log.d("OnSuccses", message);
+				} catch (JSONException e) {
+					e.printStackTrace();
+					Log.d("response", e.getMessage());
+				}
+
+			}
+			@Override
+			public void onError(String result) {
+				Log.d("Error.Response", result);
+			}
+
+		});
+
+		}
 
 	private void initAction() {
 		/*btnNjajal.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +184,7 @@ public class Login extends AppCompatActivity {
 					return;
 				} else {
 					proses.ShowDialog();
+
 					final JSONObject jBody = new JSONObject();
 					try {
 						jBody.put("username", username.getText().toString());
@@ -162,7 +258,7 @@ public class Login extends AppCompatActivity {
 									session.deleteIDPerusahaan();
 									session.checkIDPerusahaan();
 									if (!isIDPerusahaan) {
-										if (!onPopupIDPerusahaan) {
+										if (!onback) {
 											popupSalahIdPerusahaan();
 										}
 									}
@@ -197,7 +293,7 @@ public class Login extends AppCompatActivity {
 			public void onClick(View view) {
 				dialog.dismiss();
 				if (!isIDPerusahaan) {
-					if (!onPopupIDPerusahaan) {
+					if (!onback) {
 						//popupInputIDPerusahaan();
 					}
 				}
@@ -221,7 +317,7 @@ public class Login extends AppCompatActivity {
 			public void onDismiss(DialogInterface dialog) {
 				handler.removeCallbacks(runnable);
 				if (!isIDPerusahaan) {
-					if (!onPopupIDPerusahaan) {
+					if (!onback) {
 						//popupInputIDPerusahaan();
 					}
 				}
@@ -242,7 +338,7 @@ public class Login extends AppCompatActivity {
 			public void onClick(View view) {
 				dialog.dismiss();
 				if (!isIDPerusahaan) {
-					if (!onPopupIDPerusahaan) {
+					if (!onback) {
 						//popupInputIDPerusahaan();
 					}
 				}
@@ -265,7 +361,7 @@ public class Login extends AppCompatActivity {
 			public void onDismiss(DialogInterface dialog) {
 				handler.removeCallbacks(runnable);
 				if (!isIDPerusahaan) {
-					if (!onPopupIDPerusahaan) {
+					if (!onback) {
 						//popupInputIDPerusahaan();
 					}
 				}

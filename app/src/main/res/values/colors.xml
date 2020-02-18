@@ -2,12 +2,15 @@
 <resources>
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFC107</color>
+    <color name="colortxt">#FCE279</color>
     <color name="colorAccent">#FF4081</color>
     <color name="warnatombolin">#04b1f4</color>
+    <color name="ColorRiset">#FF9A07</color>
     <color name="warnatombolinkliked">#5004b1f4</color>
     <color name="statusbarkeluar">#E8B201</color>
     <color name="transparant">#00000000</color>
     <color name="colorNotif">#009CD9</color>
+    <color name="txt_blue">#0548F0</color>
     <color name="colorgrey_lamp">#D6D6D8</color>
     <color name="color_black">#030303</color>
 </resources>

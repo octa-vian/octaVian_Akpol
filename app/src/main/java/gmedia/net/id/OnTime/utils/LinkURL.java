@@ -24,5 +24,7 @@ public class LinkURL {
 	public static String gantiPassword = BaseURLLocalHost + "Rest/change_password";
 	public static String viewTerlambat = BaseURLLocalHost + "Rest_Absensi/terlambat";
 	public static String upVersion = BaseURLLocalHost + "Rest/version";
+	public static String RePassword = BaseURLLocalHost+ "Rest_Resetemail/add_reset_email/";
+
 	public static String urlIpPublic = "https://api.ipify.org";
 }

@@ -46,6 +46,7 @@ import gmedia.net.id.OnTime.menu_pengumuman.MenuPengumuman;
 import gmedia.net.id.OnTime.menu_scanlog.Scanlog;
 import gmedia.net.id.OnTime.menu_utama.AbsenMasuk;
 import gmedia.net.id.OnTime.menu_utama.AbsenPulang;
+import gmedia.net.id.OnTime.menu_utama.Apel;
 import gmedia.net.id.OnTime.menu_utama.BerhentiLembur;
 import gmedia.net.id.OnTime.menu_utama.Istirahat;
 import gmedia.net.id.OnTime.menu_utama.KembaliBekerja;
@@ -378,7 +379,7 @@ public class DashboardBaru extends Fragment {
                 /*MainActivityBaru.isHome = false;
                 fragment = new AbsenMasuk();
                 callFragment(fragment);*/
-				Intent intent = new Intent(context, AbsenMasuk.class);
+				Intent intent = new Intent(context, Apel.class);
 				((Activity) context).startActivity(intent);
 				((Activity) context).overridePendingTransition(R.anim.fade_in, R.anim.no_move);
 			}
@@ -492,21 +493,11 @@ public class DashboardBaru extends Fragment {
 					JSONObject object = new JSONObject(result);
 					String status = object.getJSONObject("metadata").getString("status");
 					String message = object.getJSONObject("metadata").getString("message");
+
 					if (status.equals("200")) {
-						String foto = object.getJSONObject("response").getString("foto");
-						if (foto.equals("")) {
-							fotoProfle.setImageResource(R.drawable.user);
-						} else {
-							Picasso.get().load(object.getJSONObject("response").getString("foto"))
-									.resize(512, 512)
-									.centerCrop()
-									.placeholder(R.drawable.user)
-									.error(R.drawable.user)
-									.transform(new CircleTransform())
-									.into(fotoProfle);
-						}
 						namaProfile.setText(object.getJSONObject("response").getString("nama"));
-						nikProfile.setText(object.getJSONObject("response").getString("nik"));
+						nikProfile.setText(object.getJSONObject("response").getString("nrp"));
+
 					} else if (status.equals("401")) {
 						session.logoutUser();
 					} else {

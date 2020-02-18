@@ -22,7 +22,7 @@ public class AbsenPulang extends Activity {
 	private TextView tanggal, jam, menit;
 	private GetLocation getLocation;
 	private RelativeLayout btnCheckOut;
-	private String tipe_scan = "2";
+	private String tipe_scan = "10";
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {

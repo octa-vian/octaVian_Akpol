@@ -49,6 +49,45 @@
             android:layout_weight="1.2"
             android:clickable="true">
 
+            <!--<TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="257dp"
+                android:layout_marginLeft="257dp"
+                android:layout_marginTop="314dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginRight="52dp"
+                android:layout_marginBottom="105dp"
+                android:background="@drawable/bcg_btn_login"
+                android:gravity="center"
+                android:text="klik disini"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="158dp"
+                android:layout_height="19dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="89dp"
+                android:layout_marginLeft="89dp"
+                android:layout_marginTop="315dp"
+                android:layout_marginEnd="164dp"
+                android:layout_marginRight="164dp"
+                android:layout_marginBottom="104dp"
+                android:gravity="right"
+                android:text="Lupa password?"
+                android:textColor="#fff" />-->
+
         </RelativeLayout>
     </LinearLayout>
 
@@ -68,6 +107,7 @@
             android:layout_width="@dimen/sizeFormLogin"
             android:layout_height="@dimen/sizeFormLogin"
             android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
             card_view:cardBackgroundColor="#ffffff"
             card_view:cardCornerRadius="20dp"
             card_view:cardElevation="4dp"
@@ -249,6 +289,26 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Lupa password?"
+           android:textColor="#fff"
+           android:layout_marginRight="35dp"
+           android:gravity="right"/>
+        <TextView
+            android:id="@+id/tv_pswd"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="63dp"
+            android:background="@drawable/bcg_btn_login"
+            android:text="Klik disini"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_gravity="right"
+            android:gravity="center"/>
     </LinearLayout>
 
 

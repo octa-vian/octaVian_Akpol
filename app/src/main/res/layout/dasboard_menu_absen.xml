@@ -72,12 +72,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
             android:layout_weight="4">
 
             <LinearLayout
+                android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -98,13 +100,13 @@
                         android:layout_weight="0.5">
 
                     </LinearLayout>
-
                     <ImageView
                         android:id="@+id/fotoProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:src="@drawable/icon_absensi_baru" />
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -116,7 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" >-->
 
+
             <LinearLayout
+                android:id="@+id/txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="bottom"
@@ -129,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="NAMAMU"
+                    android:textStyle="bold"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
 
@@ -139,17 +144,19 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="5dp"
                     android:text="NIK 123456789"
+                    android:textStyle="bold"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/textSizeDashboard" />
             </LinearLayout>
        <!-- </LinearLayout>-->
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="11"
+            android:gravity="center_vertical"
             android:layout_gravity="center"
-            android:gravity="center"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -269,6 +276,11 @@
 
 
             </LinearLayout>
+
+           <!-- <FrameLayout
+                android:id="@+id/changeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />-->
 
 
             <!--<LinearLayout
@@ -718,8 +730,4 @@
             </LinearLayout>
         </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/changeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </RelativeLayout>

@@ -13,7 +13,7 @@
     </item>
     <item android:state_pressed="true">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
-            <solid android:color="#2a5da9" />
+            <solid android:color="#D6D3D3" />
             <corners
                 android:radius="100dp">
             </corners>

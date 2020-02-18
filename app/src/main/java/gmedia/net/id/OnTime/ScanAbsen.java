@@ -101,7 +101,7 @@ public class ScanAbsen {
 							@Override
 							public void onClick(View view) {
 								dialog.dismiss();
-								Intent intent = new Intent(context, MainActivityBaru.class);
+								Intent intent = new Intent(context, DashboardBaru.class);
 								((Activity) context).startActivity(intent);
 								((Activity) context).overridePendingTransition(R.anim.no_move, R.anim.fade_out_animation);
 								((Activity) context).finish();

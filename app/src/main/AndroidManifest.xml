@@ -142,6 +142,9 @@
             android:name=".menu_utama.KembaliBekerja"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".menu_utama.Apel"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".menu_utama.BerhentiLembur"
             android:screenOrientation="portrait" />
         <activity
