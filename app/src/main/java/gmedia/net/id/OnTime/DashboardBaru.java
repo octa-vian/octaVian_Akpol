@@ -63,7 +63,7 @@ import gmedia.net.id.OnTime.utils.SessionManager;
 
 public class DashboardBaru extends Fragment {
 	private View view;
-	private RelativeLayout btnMenu, btnGantiPassword;
+	private ImageView btnMenu, btnGantiPassword;
 			/*menuAbsenMasuk, menuIstirahat, menuMulaiLembur, menuSampaiTujuan, menuAbsenPulang,
 			menuKembaliKerja, menuBerhentiLembur, menuPindahTujuan;*/
 	private RelativeLayout btn_apel, btn_kunjungan;
@@ -138,8 +138,8 @@ public class DashboardBaru extends Fragment {
 		fotoProfle = (ImageView) view.findViewById(R.id.fotoProfile);
 		namaProfile = (TextView) view.findViewById(R.id.namaProfile);
 		nikProfile = (TextView) view.findViewById(R.id.nikProfile);
-		btnMenu = (RelativeLayout) view.findViewById(R.id.menuDashboardBaru);
-		btnGantiPassword = (RelativeLayout) view.findViewById(R.id.menuGantiPassword);
+		btnMenu = (ImageView) view.findViewById(R.id.menuDashboardBaru);
+		btnGantiPassword = (ImageView) view.findViewById(R.id.menuGantiPassword);
 		//menuAbsenMasuk = (RelativeLayout) view.findViewById(R.id.menuAbsenMasukBaru);
 		/*menuIstirahat = (RelativeLayout) view.findViewById(R.id.menuIstirahatBaru);
 		menuMulaiLembur = (RelativeLayout) view.findViewById(R.id.menuMulaiLemburBaru);
@@ -155,9 +155,9 @@ public class DashboardBaru extends Fragment {
 		btnMenu.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				final Dialog dialogMenu = new Dialog(context);
+				final Dialog dialogMenu = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
 				dialogMenu.getWindow().getAttributes().windowAnimations = R.style.animasiDialog;
-				dialogMenu.setContentView(R.layout.popup_menu);
+				dialogMenu.setContentView(R.layout.popup_menu_absen);
 				dialogMenu.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 				ImageView btnClose = (ImageView) dialogMenu.findViewById(R.id.closePopupMenu);
 				btnClose.setOnClickListener(new View.OnClickListener() {
@@ -245,7 +245,7 @@ public class DashboardBaru extends Fragment {
 						dialogMenu.dismiss();
 					}
 				});*/
-				TextView logout = (TextView) dialogMenu.findViewById(R.id.logout);
+				LinearLayout logout = (LinearLayout) dialogMenu.findViewById(R.id.logout);
 				logout.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {

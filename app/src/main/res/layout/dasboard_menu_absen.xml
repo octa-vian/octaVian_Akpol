@@ -7,14 +7,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityBaru">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bghome"
+        android:background="@drawable/bghome2"
         android:orientation="vertical"
         android:weightSum="16.6">
 
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:id="@+id/menuDashboardBaru"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/menu" />
+
+            <ImageView
+                android:id="@+id/menuGantiPassword"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/setting" />
+        </RelativeLayout>
+
+
+
+
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
@@ -28,7 +63,7 @@
                 android:layout_weight="0.25" />
 
             <RelativeLayout
-                android:id="@+id/menuDashboardBaru"
+                android:id="@+id/menuDashboardBaru1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:padding="3dp"
@@ -47,7 +82,7 @@
                 android:layout_weight="3.5" />
 
             <RelativeLayout
-                android:id="@+id/menuGantiPassword"
+                android:id="@+id/menuGantiPassword1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
@@ -135,7 +170,7 @@
                     android:text="NAMAMU"
                     android:textStyle="bold"
                     android:textColor="#ffffff"
-                    android:textSize="20sp" />
+                    android:textSize="32sp" />
 
                 <TextView
                     android:id="@+id/nikProfile"
@@ -146,24 +181,25 @@
                     android:text="NIK 123456789"
                     android:textStyle="bold"
                     android:textColor="#ffffff"
-                    android:textSize="@dimen/textSizeDashboard" />
+                    android:textSize="15dp" />
             </LinearLayout>
        <!-- </LinearLayout>-->
 
         <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="11"
-            android:gravity="center_vertical"
-            android:layout_gravity="center"
+            android:gravity="bottom"
             android:orientation="vertical"
             android:weightSum="2">
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -171,7 +207,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_weight="0.55"
+                    android:layout_weight="1"
                     card_view:cardBackgroundColor="#ffffff"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="4dp"
@@ -181,41 +217,31 @@
                     <RelativeLayout
                         android:id="@+id/rv_apel"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="160dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_margin="10dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="2.7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/apelicon"/>
+                                android:src="@drawable/apel1"/>
 
                             <TextView
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="18dp"
-                                android:layout_gravity="center"
+                                android:layout_gravity="bottom"
                                 android:gravity="center"
                                 android:text="Apel"
                                 android:textStyle="bold"
-                                android:textColor="@color/color_black"
-                                android:textSize="30sp" />
+                                android:textColor="@color/color_black" />
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="12dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="2.9"/>
                         </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -223,9 +249,10 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.55"
+                    android:layout_weight="1"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
+                    android:layout_marginBottom="8dp"
                     card_view:cardBackgroundColor="#ffffff"
                     card_view:cardCornerRadius="20dp"
                     card_view:cardElevation="4dp"
@@ -235,41 +262,31 @@
                     <RelativeLayout
                         android:id="@+id/rv_kunjungan"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="160dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_margin="10dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="2.7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/kunjungan"/>
+                                android:src="@drawable/kunjungan1"/>
 
                             <TextView
-                                android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="20dp"
-                                android:layout_gravity="center"
+                                android:layout_gravity="bottom"
                                 android:gravity="center"
                                 android:text="Kunjungan"
-                                android:textStyle="bold"
                                 android:textColor="@color/color_black"
-                                android:textSize="30sp" />
+                                android:textStyle="bold" />
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="12dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="2.9"/>
                         </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
