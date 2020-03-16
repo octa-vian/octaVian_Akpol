@@ -2,16 +2,22 @@ package gmedia.net.id.OnTime.menu_utama;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 
+import gmedia.net.id.OnTime.DashboardBaru;
 import gmedia.net.id.OnTime.R;
 import gmedia.net.id.OnTime.ScanAbsen;
 import gmedia.net.id.OnTime.ScanAbsenKunjungan;
@@ -24,21 +30,110 @@ public class Kunjungan extends Activity {
 	private TextView tanggal, jam, menit;
 	private RelativeLayout btnCheckIn, cekin, cekout;
 	private GetLocation getLocation;
-	private String tipe_scan = "7";
+	private String tipe_scan1 = "7";
+	private String tipe_scan2 = "8";
 	private Proses proses;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.absen_kunjungan);
+		setContentView(R.layout.absen_kunjungan_baru);
 		proses = new Proses(Kunjungan.this);
 		/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
 			getLocation = new GetLocation();
 			getLocation.GetLocation(AbsenMasuk.this);
 		}*/
+		if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+			getLocation = new GetLocation();
+			getLocation.GetLocation(Kunjungan.this);
+		}
 		initUI();
 		initAction();
+
+		cekin = (RelativeLayout) findViewById(R.id.cekin);
+		cekout = (RelativeLayout) findViewById(R.id.cekout);
+
+		cekin.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+			/*	Intent intent = new Intent(Kunjungan.this, AbsenCekIn.class);
+				startActivity(intent);*/
+				final Dialog dialog = new Dialog(Kunjungan.this);
+				dialog.setContentView(R.layout.popup_absen_kunjungan);
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				final Button btn_msk, btn_cancel;
+				btn_msk = dialog.findViewById(R.id.btn_masuk);
+				btn_cancel = dialog.findViewById(R.id.btn_cancel);
+				btn_msk.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						ScanAbsen scanAbsen = new ScanAbsen(Kunjungan.this, tipe_scan1);
+						if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+							getLocation = new GetLocation();
+							getLocation.GetLocation(Kunjungan.this);
+							Toast.makeText(context, "please try again", Toast.LENGTH_LONG).show();
+						} else {
+//                   prepareAbsenMasuk();
+							ScanAbsenKunjungan scanAbsenKunjungan = new ScanAbsenKunjungan(Kunjungan.this, tipe_scan1);
+//                   Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
+							//                   Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
+						}
+					}
+				});
+
+				btn_cancel.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+				dialog.show();
+			}
+		});
+
+		cekout.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				/*Intent intent = new Intent(Kunjungan.this, AbsenCekOut.class);
+				startActivity(intent);*/
+				final Dialog dialog = new Dialog(Kunjungan.this);
+				dialog.setContentView(R.layout.popup_absen_kunjungan);
+				dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+				final Button btn_msk,btn_cancel;
+				btn_cancel = dialog.findViewById(R.id.btn_cancel);
+				btn_msk = dialog.findViewById(R.id.btn_masuk);
+				btn_msk.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						ScanAbsen scanAbsen = new ScanAbsen(Kunjungan.this, tipe_scan2);
+						if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
+							getLocation = new GetLocation();
+							getLocation.GetLocation(Kunjungan.this);
+							Toast.makeText(context, "please try again", Toast.LENGTH_LONG).show();
+						} else {
+
+//                   prepareAbsenMasuk();
+							ScanAbsenKunjungan scanAbsenKunjungan = new ScanAbsenKunjungan(Kunjungan.this, tipe_scan2);
+//                   Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
+							//                   Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
+						}
+					}
+
+				});
+
+				btn_cancel.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+
+				dialog.show();
+
+			}
+		});
+
 	}
 
 	/*@Override
@@ -59,8 +154,7 @@ public class Kunjungan extends Activity {
 		tanggal = (TextView) findViewById(R.id.txtDinoTanggalMasuk);
 		jam = (TextView) findViewById(R.id.txtJamMasuk);
 		menit = (TextView) findViewById(R.id.txtMenitMasuk);
-		cekin = (RelativeLayout) findViewById(R.id.cekin);
-		cekout = (RelativeLayout) findViewById(R.id.cekout);
+
 	}
 
 	@SuppressLint("ClickableViewAccessibility")
@@ -79,33 +173,8 @@ public class Kunjungan extends Activity {
 			}
 		};
 		handler.postDelayed(r, 300);
-		cekin.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent intent = new Intent(Kunjungan.this, AbsenCekIn.class);
-				startActivity(intent);
-				//ScanAbsen scanAbsen = new ScanAbsen(Kunjungan.this, tipe_scan);
-				/*if (DashboardBaru.latitude.equals("") || DashboardBaru.longitude.equals("")) {
-					getLocation = new GetLocation();
-					getLocation.GetLocation(AbsenMasuk.this);
-					Toast.makeText(context, "please try again", Toast.LENGTH_LONG).show();
-				} else {
-//                    prepareAbsenMasuk();
-					ScanAbsen scanAbsen = new ScanAbsen(AbsenMasuk.this, tipe_scan);
-//                    Toast.makeText(context, "" + DashboardBaru.latitude + " & " + DashboardBaru.longitude, Toast.LENGTH_LONG).show();
-//                    Toast.makeText(context, "Berhasil", Toast.LENGTH_LONG).show();
-				}*/
-			}
-		});
 
-		cekout.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Kunjungan.this, AbsenCekOut.class);
-				startActivity(intent);
-				//ScanAbsenKunjungan scanAbsenkunjungan = new ScanAbsenKunjungan(Kunjungan.this, tipe_scan);
-			}
-		});
+
 	}
 
 	@Override
