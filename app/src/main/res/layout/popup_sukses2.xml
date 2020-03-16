@@ -25,9 +25,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="SUKSES"
+                android:text="Anda Berhasil Absen"
                 android:textColor="#FFFFFF"
-                android:textSize="35sp"
+                android:textSize="@dimen/sp18"
                 android:textStyle="bold" />
 
             <RelativeLayout
@@ -35,14 +35,14 @@
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/bcg_btn_popup_sukses2">
+                android:background="@drawable/bcg_popup_default">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="OK"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/color_black"
                     android:textSize="14sp" />
             </RelativeLayout>
         </LinearLayout>

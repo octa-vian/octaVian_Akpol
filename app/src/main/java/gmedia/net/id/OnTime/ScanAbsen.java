@@ -94,7 +94,7 @@ public class ScanAbsen {
 					String message = object.getJSONObject("metadata").getString("message");
 					if (status.equals("200")) {
 						final Dialog dialog = new Dialog(context);
-						dialog.setContentView(R.layout.popup_sukses);
+						dialog.setContentView(R.layout.popup_sukses2);
 						dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 						RelativeLayout btnOk = (RelativeLayout) dialog.findViewById(R.id.btnOkPopupSukses);
 						btnOk.setOnClickListener(new View.OnClickListener() {
